@@ -1,5 +1,5 @@
 import { Transform } from 'class-transformer';
-import { IsInt, IsNotEmpty, IsString, Length, Min } from 'class-validator';
+import { IsInt, IsNotEmpty, IsString, Length, Min, IsUUID } from 'class-validator';
 
 export class CreateOrderDTO {
   @IsNotEmpty()
@@ -16,6 +16,13 @@ export class CreateOrderDTO {
   address: string;
 
   @IsNotEmpty()
+  @IsUUID()
   @IsString()
-  productId: string;
+productId: string;
+
+@IsNotEmpty()
+  @IsUUID()
+  @IsString()
+clientId: string;
+
 }

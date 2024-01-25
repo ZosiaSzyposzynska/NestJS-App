@@ -3,16 +3,16 @@ import {
   IsInt,
   IsNotEmpty,
   IsString,
-  Length,
   Min,
   IsUUID,
 } from 'class-validator';
 
 export class UpdateOrderDTO {
-  @IsNotEmpty()
+
+@IsNotEmpty()
+  @IsUUID()
   @IsString()
-  @Length(10, 20)
-  client: string;
+clientId: string;
 
   @IsInt()
   @Min(0)
@@ -21,6 +21,8 @@ export class UpdateOrderDTO {
   @Transform(({ value }) => (Array.isArray(value) ? value.join(', ') : ''))
   address: string;
 
+   @IsNotEmpty()
   @IsUUID()
-  productId: string;
+  @IsString()
+productId: string;
 }
